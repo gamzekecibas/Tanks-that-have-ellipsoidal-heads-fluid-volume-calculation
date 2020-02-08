@@ -1,0 +1,31 @@
+Function ArcCos(x As Double, y As Double) As Double
+  ArcCos = ((x - y) / x) * 180 / Pi
+  End Function
+ Sub VOL_HRZN()
+  Dim D As Double
+    D = InputBox("Enter diameter of the cylinder in meter")
+  Dim H As Double
+    H = InputBox("Enter height of water in meter")
+  Dim L As Double
+    L = InputBox("Enter length of between two elliptical heads in meter")
+  Dim A As Double
+    A = InputBox("Enter radius of elliptic heads in meter")
+  Dim R As Double
+    R = D * 0.5
+  Dim n As Double
+    n = ArcCos(R, H)
+  Af = WorksheetFunction.Power(R, 2) * n - (R - H) * WorksheetFunction.Power(2 * R * H -
+Workheetfunction.Power(H, 2), 0.5)
+  Vf = Af * L + Pi * A * WorksheetFunction.Power(H, 2) * (1 - (H / (3 * R)))
+  MsgBox Vf & "m^3"
+' VOL_HRZN Makro
+' Tanks that have ellipsoidal heads fluid volume calculation
+'
+' Klavye Kısayolu: Ctrl+Shift+H
+'
+ ActiveWorkbook.Save
+ ActiveCell.FormulaR1C1 = ""
+ Range("A1").Select
+ ActiveCell.FormulaR1C1 = ""
+ Range("B2").Select
+End Sub
